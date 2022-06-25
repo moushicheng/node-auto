@@ -1,0 +1,37 @@
+/*
+ * @Author: moushicheng 1163675107@qq.com
+ * @Date: 2022-05-15 16:30:30
+ * @LastEditors: moushicheng 1163675107@qq.com
+ * @LastEditTime: 2022-05-30 18:30:25
+ * @FilePath: \napi-examples\second\lib\binding.js
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
+const addon = require('../build/Release/second-native');
+const {findImage} =require('../lib/findImage/index')
+const path = require('path');
+// addon.moveTo(100,100)
+
+// setTimeout(()=>{
+//     for(let i=0x41;i<0x5A;i++){
+//         addon.sendKey(i)
+//     }
+// },5000)
+// addon.swapMouseButton(false)
+
+//  setTimeout(() => {
+     
+//      console.log('go');
+//     addon.setVerticalScroll(120,120)
+//  }, 2000);
+
+console.log(
+    findImage(path.join(__dirname, "./image/1.png"), path.join(__dirname, "./image/3.png"))
+);
+
+
+
+ 
+ 
+ 
+
+
