@@ -86,6 +86,11 @@ Napi::Boolean setVerticalScroll(const Napi::CallbackInfo &info)
     return Napi::Boolean::New(env, true);
 }
 
+Napi::Object getScreen(const Napi::CallbackInfo &info){
+     Napi::Env env = info.Env();
+     BitMap screen=getScreenBitmap();
+}
+
 Napi::Object Init(Napi::Env env, Napi::Object exports)
 {
     Napi::String name = Napi::String::New(env, "moveTo");

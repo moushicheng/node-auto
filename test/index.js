@@ -24,9 +24,9 @@ const path = require('path');
 //     addon.setVerticalScroll(120,120)
 //  }, 2000);
 
-console.log(
-    findImage(path.join(__dirname, "./image/1.png"), path.join(__dirname, "./image/3.png"))
-);
+// console.log(
+//     findImage(path.join(__dirname, "./image/1.png"), path.join(__dirname, "./image/3.png"))
+// );
 
 
 

@@ -15,6 +15,13 @@ public:
         height = value;
     }
 };
+Size getScreenSize()
+{
+    Size screenSize;
+    screenSize.setWidth(GetSystemMetrics(SM_CXSCREEN));
+    screenSize.setHeight(GetSystemMetrics(SM_CYSCREEN));
+    return screenSize;
+}
 
 BitMap getScreenBitmap()
 {
@@ -43,10 +50,4 @@ BitMap getScreenBitmap()
     return (BitMap)buffer;
 }
 
-Size getScreenSize()
-{
-    Size screenSize;
-    screenSize.setWidth(GetSystemMetrics(SM_CXSCREEN));
-    screenSize.setHeight(GetSystemMetrics(SM_CYSCREEN));
-    return screenSize;
-}
+

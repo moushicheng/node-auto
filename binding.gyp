@@ -2,7 +2,7 @@
   'targets': [
     {
       'target_name': 'second-native',
-      'sources': [ 'src/main.cc' ],
+      'sources': [ 'src/main.cc','src/screen.cc' ],
       'include_dirs': ["<!@(node -p \"require('node-addon-api').include\")"],
       'dependencies': ["<!(node -p \"require('node-addon-api').gyp\")"],
       'cflags!': [ '-fno-exceptions' ],
