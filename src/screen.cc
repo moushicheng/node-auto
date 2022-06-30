@@ -1,20 +1,5 @@
 #include "main.h"
-typedef unsigned char Uint8;
-typedef Uint8 * BitMap;
 
-class Size
-{
-public:
-    size_t width, height;
-    void setWidth(size_t value)
-    {
-        width = value;
-    }
-    void setHeight(size_t value)
-    {
-        height = value;
-    }
-};
 Size getScreenSize()
 {
     Size screenSize;
@@ -29,10 +14,11 @@ BitMap getScreenBitmap()
     HDC screen = NULL, screenMem = NULL;
     HBITMAP dib;
     BITMAPINFO bi;
-    Size screenSize=getScreenSize();
+    Size screenSize = getScreenSize();
+
     bi.bmiHeader.biSize = sizeof(bi.bmiHeader);
     bi.bmiHeader.biWidth = (long)screenSize.width;
-    bi.bmiHeader.biHeight = -(long)screenSize.height; 
+    bi.bmiHeader.biHeight = -(long)screenSize.height;
     bi.bmiHeader.biPlanes = 1;
     bi.bmiHeader.biBitCount = 32;
     bi.bmiHeader.biCompression = BI_RGB;
@@ -43,11 +29,27 @@ BitMap getScreenBitmap()
     bi.bmiHeader.biClrImportant = 0;
 
     screen = GetDC(NULL); /* Get entire screen */
-	if (screen == NULL) return NULL;
-	/* Get screen data in display device context. */
-   	dib = CreateDIBSection(screen, &bi, DIB_RGB_COLORS, &buffer, NULL, 0);
-                             
-    return (BitMap)buffer;
+                          // if (screen == NULL) return NULL;
+    /* Get screen data in display device context. */
+    dib = CreateDIBSection(screen, &bi, DIB_RGB_COLORS, &buffer, NULL, 0);
+    if ((screenMem = CreateCompatibleDC(screen)) == NULL ||
+        SelectObject(screenMem, dib) == NULL ||
+        !BitBlt(screenMem,
+                (int)0,
+                (int)0,
+                (int)screenSize.width,
+                (int)screenSize.height,
+                screen,
+                0,
+                0,
+                SRCCOPY));
+
+    // Uint8 *data = (Uint8 *)buffer;
+    // for (int i = 0; i < 10; i++)
+    // {
+    //     printf("%d ", data[i]);
+    // }
+
+    BitMap screenBitMap(screenSize.width, screenSize.height, (Uint8 *)buffer);
+    return screenBitMap;
 }
-
-

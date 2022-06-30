@@ -86,9 +86,22 @@ Napi::Boolean setVerticalScroll(const Napi::CallbackInfo &info)
     return Napi::Boolean::New(env, true);
 }
 
-Napi::Object getScreen(const Napi::CallbackInfo &info){
-     Napi::Env env = info.Env();
-     BitMap screen=getScreenBitmap();
+Napi::Object getScreen(const Napi::CallbackInfo &info)
+{
+    Napi::Env env = info.Env();
+    BitMap screen = getScreenBitmap();
+    Object obj = Object::New(env);
+    obj["width"] = Number::New(env,screen.width);
+    obj["height"] = Number::New(env,screen.height);
+    obj["size"] = Number::New(env,screen.size);
+    // Napi::Array data=Array::New(env);
+    // for(size_t i=0;i<screen.size;i++){
+    //     data[i]=screen.data[i];
+    // }
+    napi_value result_buffer;
+    napi_create_buffer_copy(env, screen.size, screen.data, nullptr, &result_buffer);
+    obj["data"] = result_buffer;
+    return obj;
 }
 
 Napi::Object Init(Napi::Env env, Napi::Object exports)
@@ -102,6 +115,8 @@ Napi::Object Init(Napi::Env env, Napi::Object exports)
                 Napi::Function::New(env, swapMouseButton));
     exports.Set(Napi::String::New(env, "setVerticalScroll"),
                 Napi::Function::New(env, setVerticalScroll));
+    exports.Set(Napi::String::New(env, "getScreen"),
+                Napi::Function::New(env, getScreen));
     return exports;
 }
 
