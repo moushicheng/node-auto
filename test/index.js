@@ -9,6 +9,7 @@
 const addon = require('../build/Release/second-native');
 const { findImage } = require('../lib/findImage/index')
 const path = require('path');
+const elf=require('../index.js')
 // addon.moveTo(100,100)
 
 // setTimeout(()=>{
@@ -19,8 +20,6 @@ const path = require('path');
 // addon.swapMouseButton(false)
 
 //  setTimeout(() => {
-
-//      console.log('go');
 //     addon.setVerticalScroll(120,120)
 //  }, 2000);
 
@@ -35,10 +34,28 @@ const path = require('path');
 // for(let i=data.length-100;i<data.length;i++){
 //     console.log(data[i]);
 // }
-setTimeout(() => {
-    // addon.click(0);
-}, 2000);
+// setTimeout(() => {
+//     // addon.click(0);
+// }, 2000);
 
+function sleep(t){
+    return new Promise((res=>{
+        setTimeout(() => {
+            res(true);
+        }, t);
+    }))
+}
+
+async function main(){
+    elf.moveTo(1141,885)
+    await sleep(1000)
+    elf.click(0)
+    await sleep(1000)
+    for(let i=0x41;i<0x5A;i++){
+        elf.sendKey(i)
+    }
+}
+main()
 
 
 

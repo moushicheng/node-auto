@@ -34,5 +34,4 @@ module.exports={
    click:function(button=0){
     addon.click(button);
    }
-
 }
