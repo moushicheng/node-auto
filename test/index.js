@@ -27,14 +27,17 @@ const path = require('path');
 // console.log(
 //     findImage(path.join(__dirname, "./image/1.png"), path.join(__dirname, "./image/3.png"))
 // );
-let time=new Date();
-const screen = addon.getScreen()
-console.log(new Date()-time);
-const data=screen.data;
+// let time=new Date();
+// const screen = addon.getScreen()
+// console.log(new Date()-time);
+// const data=screen.data;
 
-for(let i=data.length-100;i<data.length;i++){
-    console.log(data[i]);
-}
+// for(let i=data.length-100;i<data.length;i++){
+//     console.log(data[i]);
+// }
+setTimeout(() => {
+    // addon.click(0);
+}, 2000);
 
 
 

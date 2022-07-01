@@ -14,3 +14,4 @@
 #include <windows.h>
 
 #include "screen.h"
+#include "mouse.h"
