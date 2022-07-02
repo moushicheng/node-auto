@@ -46,17 +46,6 @@ function sleep(t){
     }))
 }
 
-async function main(){
-    elf.moveTo(1141,885)
-    await sleep(1000)
-    elf.click(0)
-    await sleep(1000)
-    for(let i=0x41;i<0x5A;i++){
-        elf.sendKey(i)
-    }
-}
-main()
-
 
 
 
