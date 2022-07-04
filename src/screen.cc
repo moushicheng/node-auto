@@ -44,11 +44,6 @@ BitMap getScreenBitmap()
                 0,
                 SRCCOPY));
 
-    // Uint8 *data = (Uint8 *)buffer;
-    // for (int i = 0; i < 10; i++)
-    // {
-    //     printf("%d ", data[i]);
-    // }
 
     BitMap screenBitMap(screenSize.width, screenSize.height, (Uint8 *)buffer);
     return screenBitMap;

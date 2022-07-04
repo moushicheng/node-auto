@@ -47,6 +47,10 @@ function sleep(t){
 }
 
 
+console.log(
+    elf.find(path.join(__dirname, "./image/marisa.png"))
+);
+
 
 
 

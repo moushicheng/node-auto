@@ -10,15 +10,6 @@
 
 using namespace Napi;
 
-void SendKeyboard(int num)
-{
-    INPUT inputs[1] = {};
-    ZeroMemory(inputs, sizeof(inputs));
-
-    inputs[0].type = INPUT_KEYBOARD;
-    inputs[0].ki.wVk = num;
-    SendInput(ARRAYSIZE(inputs), inputs, sizeof(INPUT));
-}
 
 Napi::Boolean moveTo(const Napi::CallbackInfo &info)
 {

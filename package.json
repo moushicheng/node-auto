@@ -11,5 +11,8 @@
   "version": "1.0.0",
   "description": "node-elf",
   "author": "moushicheng",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "images": "^3.2.4"
+  }
 }
