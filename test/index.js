@@ -45,10 +45,16 @@ function sleep(t){
     }))
 }
 
+async function main(){
+   while(1){
+    console.log(
+        elf.find(path.join(__dirname, "./image/marisa.png"))
+    );
+    await sleep(500);
+   }
+}
 
-console.log(
-    elf.find(path.join(__dirname, "./image/marisa.png"))
-);
+main();
 
 
 

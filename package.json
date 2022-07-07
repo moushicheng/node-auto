@@ -1,6 +1,7 @@
 {
   "main": "lib/binding.js",
   "dependencies": {
+    "images": "^3.2.4",
     "node-addon-api": "^1.1.0"
   },
   "scripts": {
@@ -11,8 +12,5 @@
   "version": "1.0.0",
   "description": "node-elf",
   "author": "moushicheng",
-  "license": "ISC",
-  "devDependencies": {
-    "images": "^3.2.4"
-  }
+  "license": "ISC"
 }
