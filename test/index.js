@@ -8,14 +8,15 @@
  */
 const addon = require('../build/Release/second-native');
 const path = require('path');
-const elf=require('../index.js')
+const elf=require('../index.js');
+const KEY=elf.KEY
 // addon.moveTo(100,100)
-
 // setTimeout(()=>{
-//     for(let i=0x41;i<0x5A;i++){
+//     for(let i=0x41;i<0xA5;i++){
 //         addon.sendKey(i)
 //     }
 // },5000)
+// ABCDEFGHIJKLMNOPQRSTUVWXYZ
 // addon.swapMouseButton(false)
 
 //  setTimeout(() => {
@@ -47,16 +48,16 @@ function sleep(t){
 
 async function main(){
    while(1){
-    console.log(
-        elf.find(path.join(__dirname, "./image/marisa.png"))
-    );
+    // console.log(
+    //     elf.find(path.join(__dirname, "./image/marisa.png"))
+    // );
+    elf.sendKey(KEY.CONTROL)
+    elf.sendKey(KEY.C)
+    console.log('SEND');
     await sleep(500);
    }
 }
 
 main();
-
-
-
 
 

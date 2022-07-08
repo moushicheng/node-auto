@@ -8,7 +8,7 @@
  */
 
 const addon = require('./build/Release/second-native');
-const {find} =require('./lib/index.js')
+const {find,KEY} =require('./lib/index.js')
 
 
 module.exports={
@@ -30,5 +30,6 @@ module.exports={
    click:function(button=0){
     addon.click(button);
    },
-   find
+   find,
+   KEY
 }
