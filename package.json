@@ -8,9 +8,9 @@
     "test": "node --napi-modules ./test/test_binding.js"
   },
   "gypfile": true,
-  "name": "node-elf",
+  "name": "node-auto",
   "version": "1.0.0",
-  "description": "node-elf",
+  "description": "node-auto",
   "author": "moushicheng",
   "license": "ISC"
 }

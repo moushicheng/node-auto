@@ -11,12 +11,12 @@ const path = require('path');
 const elf=require('../index.js');
 const KEY=elf.KEY
 // addon.moveTo(100,100)
-// setTimeout(()=>{
-//     for(let i=0x41;i<0xA5;i++){
-//         addon.sendKey(i)
-//     }
-// },5000)
-// ABCDEFGHIJKLMNOPQRSTUVWXYZ
+setTimeout(()=>{
+    for(let i=0x41;i<0x41+24;i++){
+        addon.sendKey(i)
+    }
+},5000)
+
 // addon.swapMouseButton(false)
 
 //  setTimeout(() => {
@@ -47,17 +47,21 @@ function sleep(t){
 }
 
 async function main(){
+    let i=0;
    while(1){
-    // console.log(
-    //     elf.find(path.join(__dirname, "./image/marisa.png"))
-    // );
-    elf.sendKey(KEY.CONTROL)
-    elf.sendKey(KEY.C)
-    console.log('SEND');
-    await sleep(500);
+    i++
+    if(i==500)return;
+    // // console.log(
+    // //     elf.find(path.join(__dirname, "./image/marisa.png"))
+    // // );
+    // elf.sendKey(KEY.CONTROL)
+    // elf.sendKey(KEY.C)
+    // console.log('SEND');
+    elf.moveTo(i,i)
+    await sleep(1);
    }
 }
 
-main();
+// main();
 
 
