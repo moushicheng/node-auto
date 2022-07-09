@@ -35,12 +35,13 @@ const KEY=auto.KEY;
 auto.sendKey(KEY.a);
 ```
 
-## 图片  
-找图 find('image.png');
+## 屏幕  
+找图 find('image.png');   
+返回图片在桌面上的坐标信息x,y
 
 ```javascript
 console.log(
-   auto.find(path.join(__dirname, "./image/marisa.png"))
+   auto.find(path.join(__dirname, "./image/marisa.png")) //{x:1000,y:200}
 );
 ```
 
